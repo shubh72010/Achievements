@@ -6,31 +6,43 @@
   <title>Flakious | Achievements</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
       font-family: 'Space Grotesk', sans-serif;
       background: linear-gradient(135deg, #0d0d0d, #1a0022);
       color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
+      overflow-x: hidden;
     }
 
-    h1 {
-      font-size: 3rem;
-      color: #c084fc;
-      margin-bottom: 40px;
-      text-align: center;
+    header {
+      width: 100%;
+      background: url('https://images.unsplash.com/photo-1519750157634-b6d493a0f77b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      color: #fff;
+      text-shadow: 0 0 12px rgba(0,0,0,0.6);
+      backdrop-filter: blur(3px);
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
-      width: 100%;
-      max-width: 1000px;
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
     }
 
     .card {
@@ -40,12 +52,14 @@
       backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: 0 0 20px rgba(192, 132, 252, 0.1);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.5s ease;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 30px rgba(192, 132, 252, 0.3);
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .card h2 {
@@ -59,59 +73,81 @@
     }
 
     .footer {
-      margin-top: 60px;
+      text-align: center;
       color: #aaa;
+      margin: 40px 0 80px;
       font-size: 0.9rem;
+    }
+
+    .bottom-sheet {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(20, 20, 20, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      box-shadow: 0 -4px 30px rgba(192, 132, 252, 0.2);
       text-align: center;
     }
 
+    .bottom-sheet p {
+      margin: 0;
+      color: #ccc;
+    }
+
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2.2rem;
+      header h1 {
+        font-size: 2.4rem;
+      }
+
+      .bottom-sheet {
+        font-size: 0.85rem;
       }
     }
   </style>
 </head>
 <body>
-  <h1>Flakious' Achievements</h1>
-  
-  <div class="grid">
-    <div class="card">
-      <h2>STR!KE-III</h2>
-      <p>Started a Gen Z-coded AI project named after misheard lyrics — turning chaos into code.</p>
-    </div>
-    <div class="card">
-      <h2>ScaledSummary</h2>
-      <p>Built a purple-themed YouTube summarizer with smart backend moves and zero OpenAI reliance.</p>
-    </div>
-    <div class="card">
-      <h2>Firebase Chat App</h2>
-      <p>Created a real-time chat with Google login, DMs, servers, calls — full mobile-friendly sauce.</p>
-    </div>
-    <div class="card">
-      <h2>Game Dev Era</h2>
-      <p>Made Random Grounds and animated Gojo — dipped out of gamedev like a legend.</p>
-    </div>
-    <div class="card">
-      <h2>Mulberry-AI & Clancy-AI</h2>
-      <p>Flask backends, speech synthesis, styled like a TØP album — experimental and aesthetic.</p>
-    </div>
-    <div class="card">
-      <h2>OneAI Company</h2>
-      <p>Started your own AI org, non-profit style, collabed under PlusLink, and named it with vision.</p>
-    </div>
-    <div class="card">
-      <h2>Frontend Vibes</h2>
-      <p>Mastered tiles, glassmorphism, firebase integrations, and clean responsive layouts. Drippy.</p>
-    </div>
-    <div class="card">
-      <h2>Dem Cult Lore</h2>
-      <p>Created symbols, names, and storylines — built your own digital mythology.</p>
-    </div>
+
+  <header>
+    <h1>My Achievements</h1>
+  </header>
+
+  <div class="grid" id="cardContainer">
+    <div class="card"><h2>STR!KE-III</h2><p>I built an AI named after a misheard TØP lyric. Chaos + creativity = STR!KE-III.</p></div>
+    <div class="card"><h2>ScaledSummary</h2><p>I made a YouTube summarizer that looks clean, skips OpenAI, and never touches the rate limit wall.</p></div>
+    <div class="card"><h2>Firebase Chat App</h2><p>I made a full-featured chat app — GCs, DMs, voice calls, video, login, the whole vibe.</p></div>
+    <div class="card"><h2>Game Dev Phase</h2><p>I built Random Grounds with Gojo and retro maps. Then I dropped game dev like a mic.</p></div>
+    <div class="card"><h2>Mulberry-AI & Clancy-AI</h2><p>I built Flask AI tools with TTS, clean UIs, and big album energy. Clancy-core interfaces.</p></div>
+    <div class="card"><h2>OneAI</h2><p>I founded my own AI company. Non-profit, collab-ready, mission first. Branded it right.</p></div>
+    <div class="card"><h2>Frontend Mastery</h2><p>I nailed responsive UI, Firebase integrations, dark mode, and glassmorphism. Chef’s kiss.</p></div>
+    <div class="card"><h2>Dem Cult Lore</h2><p>I created the dem cult symbols (-//, 🜲) and lore around Flakious. Built myth from scratch.</p></div>
   </div>
 
   <div class="footer">
-    Built by Flakious | Dark mode on, vibes high
+    Flakious • Code with lore. Build with chaos.
   </div>
+
+  <div class="bottom-sheet">
+    <p>Scroll down. There’s more rizz waiting.</p>
+  </div>
+
+  <script>
+    const cards = document.querySelectorAll('.card');
+    const revealOnScroll = () => {
+      const trigger = window.innerHeight * 0.9;
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < trigger) {
+          card.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
 </body>
 </html>
