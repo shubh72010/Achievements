@@ -6,36 +6,32 @@
   <title>Flakious | Achievements</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Space Grotesk', sans-serif;
       background: linear-gradient(135deg, #0d0d0d, #1a0022);
       color: #fff;
       overflow-x: hidden;
     }
-
+    a {
+      color: #c084fc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
     header {
-      width: 100%;
       background: url('https://images.unsplash.com/photo-1519750157634-b6d493a0f77b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       height: 240px;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
     }
-
     header h1 {
       font-size: 3.5rem;
-      color: #fff;
       text-shadow: 0 0 12px rgba(0,0,0,0.6);
-      backdrop-filter: blur(3px);
     }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -44,7 +40,6 @@
       max-width: 1100px;
       margin: auto;
     }
-
     .card {
       background: rgba(255, 255, 255, 0.05);
       border-radius: 20px;
@@ -56,29 +51,25 @@
       transform: translateY(30px);
       transition: all 0.5s ease;
     }
-
     .card.visible {
       opacity: 1;
       transform: translateY(0);
     }
-
     .card h2 {
       font-size: 1.5rem;
       color: #a855f7;
       margin-bottom: 10px;
     }
-
     .card p {
       color: #e2e8f0;
+      font-size: 0.95rem;
     }
-
     .footer {
       text-align: center;
       color: #aaa;
       margin: 40px 0 80px;
       font-size: 0.9rem;
     }
-
     .bottom-sheet {
       position: fixed;
       bottom: 0;
@@ -89,23 +80,11 @@
       padding: 20px;
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
-      box-shadow: 0 -4px 30px rgba(192, 132, 252, 0.2);
       text-align: center;
     }
-
     .bottom-sheet p {
       margin: 0;
       color: #ccc;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2.4rem;
-      }
-
-      .bottom-sheet {
-        font-size: 0.85rem;
-      }
     }
   </style>
 </head>
@@ -116,22 +95,89 @@
   </header>
 
   <div class="grid" id="cardContainer">
-    <div class="card"><h2>STR!KE-III</h2><p>I built an AI named after a misheard TØP lyric. Chaos + creativity = STR!KE-III.</p></div>
-    <div class="card"><h2>ScaledSummary</h2><p>I made a YouTube summarizer that looks clean, skips OpenAI, and never touches the rate limit wall.</p></div>
-    <div class="card"><h2>Firebase Chat App</h2><p>I made a full-featured chat app — GCs, DMs, voice calls, video, login, the whole vibe.</p></div>
-    <div class="card"><h2>Game Dev Phase</h2><p>I built Random Grounds with Gojo and retro maps. Then I dropped game dev like a mic.</p></div>
-    <div class="card"><h2>Mulberry-AI & Clancy-AI</h2><p>I built Flask AI tools with TTS, clean UIs, and big album energy. Clancy-core interfaces.</p></div>
-    <div class="card"><h2>OneAI</h2><p>I founded my own AI company. Non-profit, collab-ready, mission first. Branded it right.</p></div>
-    <div class="card"><h2>Frontend Mastery</h2><p>I nailed responsive UI, Firebase integrations, dark mode, and glassmorphism. Chef’s kiss.</p></div>
-    <div class="card"><h2>Dem Cult Lore</h2><p>I created the dem cult symbols (-//, 🜲) and lore around Flakious. Built myth from scratch.</p></div>
+
+    <div class="card">
+      <h2>STR!KE-III</h2>
+      <p>My AI project born from a TØP lyric misheard. Core AI logic built with DialoGPT. Still in dev.<br>
+      <a href="https://github.com/FlakyOneAI/STRIKE-III" target="_blank">GitHub Repo</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>ScaledSummary</h2>
+      <p>Summarizes YouTube videos with no OpenAI APIs. Auto transcript, summary, purple-themed UI.<br>
+      <a href="https://github.com/FlakyOneAI/ScaledSummary" target="_blank">GitHub</a> • 
+      <a href="https://scaledsummary.onrender.com" target="_blank">Live Site</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Firebase Chat App</h2>
+      <p>Full-featured chat app with group chats, DMs, voice/video calls, Google login, and more.<br>
+      <a href="https://github.com/FlakyOneAI/Firebase-ChatApp" target="_blank">GitHub</a> • 
+      <a href="https://flakychatapp.github.io" target="_blank">Live</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Random Grounds (Game)</h2>
+      <p>A Roblox-style retro fighting game featuring Gojo, stickmen, and platform action. Retired now.<br>
+      <a href="https://www.roblox.com/games/15004378903/Random-Grounds" target="_blank">Play on Roblox</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Mulberry-AI</h2>
+      <p>A Flask-based AI assistant with TTS and EleutherAI model backend. Basic UI and logic.<br>
+      <a href="https://github.com/FlakyOneAI/Mulberry-AI" target="_blank">GitHub</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Clancy-AI</h2>
+      <p>Another Flask AI assistant themed after the *Clancy* album. Dialogue-focused.<br>
+      <a href="https://github.com/FlakyOneAI/Clancy-AI" target="_blank">GitHub</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>OneAI (Org)</h2>
+      <p>I started OneAI as a nonprofit AI org. Part of PlusLink collab. STR!KE-III & ScaledSummary live here.<br>
+      <a href="https://github.com/FlakyOneAI" target="_blank">GitHub Org</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Frontend UI Skillset</h2>
+      <p>Mastered glassmorphism, tile layouts, chat UIs, dark mode, animations, Firebase integrations.</p>
+    </div>
+
+    <div class="card">
+      <h2>dem cult Lore</h2>
+      <p>I created the cult symbols -// and 🜲, with Flakious as the head of chaos. Full lore, full drip.</p>
+    </div>
+
+    <div class="card">
+      <h2>STR!KE-III UI</h2>
+      <p>Built the UI for STR!KE-III with purple neon, animated chat bubbles, and a whole aesthetic.</p>
+    </div>
+
+    <div class="card">
+      <h2>GitHub Pages Deployments</h2>
+      <p>Deployed real-time apps and UIs using GitHub Pages — no backend fuss, full frontend power.<br>
+      <a href="https://flakychatapp.github.io" target="_blank">Firebase Chat App</a> • 
+      <a href="https://flakystrike3.github.io" target="_blank">STR!KE-III UI</a>
+      </p>
+    </div>
+
   </div>
 
   <div class="footer">
-    Flakious • Code with lore. Build with chaos.
+    Flakious • Dev, cult leader, design goblin, chaos engineer.
   </div>
 
   <div class="bottom-sheet">
-    <p>Scroll down. There’s more rizz waiting.</p>
+    <p>Keep scrollin’. Your next breakthrough might already be here.</p>
   </div>
 
   <script>
@@ -145,7 +191,6 @@
         }
       });
     };
-
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);
   </script>
