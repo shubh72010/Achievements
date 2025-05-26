@@ -2,189 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Flakious | Achievements</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Achievements | Flakious</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    * { box-sizing: border-box; }
     body {
-      margin: 0;
+      margin: 0; padding: 2rem;
       font-family: 'Space Grotesk', sans-serif;
-      background: linear-gradient(135deg, #0d0d0d, #1a0022);
-      color: #fff;
-      overflow-x: hidden;
-    }
-    a {
-      color: #c084fc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    header {
-      background: url('https://images.unsplash.com/photo-1519750157634-b6d493a0f77b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      height: 240px;
+      background: linear-gradient(135deg, #1a0022, #2d0050);
+      color: #eee;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
+      min-height: 100vh;
     }
-    header h1 {
-      font-size: 3.5rem;
-      text-shadow: 0 0 12px rgba(0,0,0,0.6);
+    h1 {
+      margin-bottom: 2rem;
+      color: #c084fc;
+      text-shadow: 0 0 6px #a855f7;
     }
-    .grid {
+    .tiles {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      padding: 40px 20px;
-      max-width: 1100px;
-      margin: auto;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.8rem;
+      width: 100%;
+      max-width: 900px;
     }
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      padding: 20px;
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 20px rgba(192, 132, 252, 0.1);
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.5s ease;
-    }
-    .card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .card h2 {
-      font-size: 1.5rem;
-      color: #a855f7;
-      margin-bottom: 10px;
-    }
-    .card p {
-      color: #e2e8f0;
-      font-size: 0.95rem;
-      line-height: 1.3;
-    }
-    .footer {
+    .tile {
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid #6b21a8;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+      padding: 1.8rem 2rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      color: #aaa;
-      margin: 40px 0 80px;
-      font-size: 0.9rem;
     }
-    .bottom-sheet {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(20, 20, 20, 0.85);
-      backdrop-filter: blur(10px);
-      padding: 20px;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-      text-align: center;
+    .tile:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px #c084fc;
+    }
+    .tile h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.6rem;
+      color: #c084fc;
+    }
+    .tile p {
+      margin: 0;
+      color: #d6bcfa;
+      font-style: italic;
       font-size: 1rem;
-      color: #ccc;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Flakious' Real Achievements</h1>
-  </header>
+  <h1>Achievements</h1>
 
-  <div class="grid" id="cardContainer">
-
-    <div class="card">
-      <h2>STR!KE-III AI Project</h2>
-      <p>My flagship AI research tool based on DialoGPT-medium. Still tweaking it for better, on-point responses. It’s the heart of my AI hustle.<br>
-      <a href="https://github.com/FlakyOneAI/STRIKE-III" target="_blank">GitHub Repo</a></p>
+  <div class="tiles">
+    <div class="tile" onclick="location.href='strike3.html'">
+      <h2>STR!KE-III</h2>
+      <p>Flagship AI Research Platform</p>
     </div>
-
-    <div class="card">
-      <h2>ScaledSummary</h2>
-      <p>Summarizes YouTube videos without OpenAI APIs. I built the whole transcript and summary pipeline with a purple-themed UI, optimized to dodge YouTube rate limits.<br>
-      <a href="https://github.com/FlakyOneAI/ScaledSummary" target="_blank">GitHub</a> • 
-      <a href="https://scaledsummary.onrender.com" target="_blank">Live Demo</a></p>
-    </div>
-
-    <div class="card">
-      <h2>Firebase-Powered Chat App</h2>
-      <p>Full-featured chat platform with group chats, DMs, voice & video calls, Google login, and profile setup. All done on GitHub Pages with Firebase backing it.<br>
-      <a href="https://github.com/FlakyOneAI/Firebase-ChatApp" target="_blank">GitHub</a> • 
-      <a href="https://flakychatapp.github.io" target="_blank">Live Site</a></p>
-    </div>
-
-    <div class="card">
-      <h2>Random Grounds (Game)</h2>
-      <p>My retro-style Roblox fighting game with stickmen, platforming, and Gojo hype. It’s retired but still a solid flex.<br>
-      <a href="https://www.roblox.com/games/15004378903/Random-Grounds" target="_blank">Play on Roblox</a></p>
-    </div>
-
-    <div class="card">
-      <h2>Mulberry-AI</h2>
-      <p>A Flask-based AI assistant with TTS and EleutherAI model backend. Basic UI, solid backend. Proof of concept for integrating AI and speech.<br>
-      <a href="https://github.com/FlakyOneAI/Mulberry-AI" target="_blank">GitHub</a></p>
-    </div>
-
-    <div class="card">
-      <h2>Clancy-AI</h2>
-      <p>Flask AI chatbot themed after the Clancy album. Focused on dialogue flow and conversation quality.<br>
-      <a href="https://github.com/FlakyOneAI/Clancy-AI" target="_blank">GitHub</a></p>
-    </div>
-
-    <div class="card">
-      <h2>OneAI Organization</h2>
-      <p>Started this nonprofit AI org as a home for my projects and collabs like PlusLink AI. STR!KE-III & ScaledSummary call this place home.<br>
-      <a href="https://github.com/FlakyOneAI" target="_blank">GitHub Org</a></p>
-    </div>
-
-    <div class="card">
-      <h2>Frontend UI Skills</h2>
-      <p>Mastered glassmorphism, tile/grid layouts, animated chat bubbles, dark mode, responsive design, and deep Firebase integrations.</p>
-    </div>
-
-    <div class="card">
-      <h2>dem cult Lore Creator</h2>
-      <p>Invented cult symbols -// and 🜲, with Flakious as the chaos head. Full-on lore builder, dripping with mystery and style.</p>
-    </div>
-
-    <div class="card">
-      <h2>STR!KE-III UI Design</h2>
-      <p>Designed the purple neon, animated chat bubble UI for STR!KE-III. Made it vibe hard with a whole aesthetic.</p>
-    </div>
-
-    <div class="card">
-      <h2>GitHub Pages Deployments</h2>
-      <p>Deployed real-time apps like Firebase Chat and STR!KE-III UI with zero backend hassle — just pure frontend power.<br>
-      <a href="https://flakychatapp.github.io" target="_blank">Firebase Chat App</a> • 
-      <a href="https://flakystrike3.github.io" target="_blank">STR!KE-III UI</a></p>
-    </div>
-
+    <!-- You can add more tiles here for Mulberry-AI, Clancy-AI, etc. -->
   </div>
-
-  <div class="footer">
-    Flakious • Student, dev, cult leader, chaos engineer, design goblin.
-  </div>
-
-  <div class="bottom-sheet">
-    <p>Keep scrollin’. Your next breakthrough might already be here.</p>
-  </div>
-
-  <script>
-    const cards = document.querySelectorAll('.card');
-    const revealOnScroll = () => {
-      const trigger = window.innerHeight * 0.9;
-      cards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        if (rect.top < trigger) {
-          card.classList.add('visible');
-        }
-      });
-    };
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
-  </script>
 
 </body>
 </html>
