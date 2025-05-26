@@ -13,6 +13,7 @@
       background: linear-gradient(135deg, #0d0d0d, #1a0022);
       color: #fff;
       overflow-x: hidden;
+      line-height: 1.5;
     }
     a {
       color: #c084fc;
@@ -31,47 +32,47 @@
     header h1 {
       font-size: 3.5rem;
       text-shadow: 0 0 12px rgba(0,0,0,0.6);
+      margin: 0;
     }
-
-    /* Profile Info Section */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto 0;
+      padding: 0 20px;
+    }
     .profile-info {
       background: rgba(255, 255, 255, 0.05);
-      max-width: 1100px;
-      margin: 30px auto 50px;
-      padding: 20px 25px;
-      border-radius: 16px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 0 25px rgba(192, 132, 252, 0.15);
-      color: #ddd;
+      border-radius: 20px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 20px rgba(192, 132, 252, 0.1);
+      margin-bottom: 40px;
     }
     .profile-info h2 {
-      color: #c084fc;
-      margin-bottom: 12px;
+      color: #a855f7;
+      margin-top: 0;
       font-size: 2rem;
+      margin-bottom: 12px;
     }
     .profile-info p {
-      font-size: 1rem;
-      line-height: 1.4;
-      margin-bottom: 16px;
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+      color: #ddd;
     }
     .profile-info ul {
-      list-style: inside disc;
-      font-size: 0.95rem;
-      line-height: 1.4;
-      color: #bbb;
+      list-style: none;
+      padding-left: 0;
+      color: #ccc;
+      font-size: 1rem;
     }
     .profile-info ul li {
       margin-bottom: 8px;
     }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
-      padding: 40px 20px;
-      max-width: 1100px;
-      margin: auto;
+      padding-bottom: 40px;
     }
     .card {
       background: rgba(255, 255, 255, 0.05);
@@ -83,7 +84,6 @@
       opacity: 0;
       transform: translateY(30px);
       transition: all 0.5s ease;
-      cursor: pointer;
     }
     .card.visible {
       opacity: 1;
@@ -128,35 +128,75 @@
     <h1>My Achievements</h1>
   </header>
 
-  <section class="profile-info">
-    <div class="container">
-      <h2>About Flakious</h2>
-      <p>
-        I’m a student and AI dev obsessed with building cool projects around AI, chatbots, gaming, and design.  
-        Known for leading the <strong>dem cult</strong> — chaos engineer vibes, purple aesthetics, and a lot of glitchy, glassy UI magic.
-      </p>
-      <ul>
-        <li><strong>Current Focus:</strong> AI projects like STR!KE-III, ScaledSummary, and Firebase-powered chat apps</li>
-        <li><strong>Skills:</strong> Flask, React, Firebase, GitHub Pages, AI models, glassmorphism UI, and frontend design</li>
-        <li><strong>Hobbies:</strong> Music (TØP fan), gaming, cult lore creation, coding random stuff</li>
-        <li><strong>Work Ethic:</strong> No sugar-coating, all about raw progress and real results</li>
-      </ul>
-    </div>
+  <section class="profile-info container">
+    <h2>About Flakious</h2>
+    <p>
+      I’m a student and AI dev obsessed with building cool projects around AI, chatbots, gaming, and design.  
+      Known for leading the <strong>dem cult</strong> — chaos engineer vibes, purple aesthetics, and a lot of glitchy, glassy UI magic.
+    </p>
+    <ul>
+      <li><strong>Current Focus:</strong> AI projects like STR!KE-III, ScaledSummary, and Firebase-powered chat apps</li>
+      <li><strong>Skills:</strong> Flask, React, Firebase, GitHub Pages, AI models, glassmorphism UI, and frontend design</li>
+      <li><strong>Hobbies:</strong> Music (TØP fan), gaming, cult lore creation, coding random stuff</li>
+      <li><strong>Work Ethic:</strong> No sugar-coating, all about raw progress and real results</li>
+      <li><strong>Discord:</strong> flakesofsmth</li>
+      <li><strong>YouTube:</strong> FlayTripsOnAir</li>
+      <li><strong>Roblox:</strong> real_Ashsh</li>
+      <li><strong>Instagram:</strong> flakesofsmth</li>
+    </ul>
   </section>
 
-  <div class="grid" id="cardContainer">
+  <div class="container grid" id="cardContainer">
 
-    <div class="card" onclick="location.href='strike3.html'">
+    <div class="card">
       <h2>STR!KE-III</h2>
       <p>My AI project born from a TØP lyric misheard. Core AI logic built with DialoGPT. Still in dev.<br>
+      <a href="strike3.html">Learn more</a> • 
       <a href="https://github.com/FlakyOneAI/STRIKE-III" target="_blank">GitHub Repo</a>
       </p>
     </div>
 
-    <div class="card" onclick="location.href='otherProjects.html'">
-      <h2>Other Projects</h2>
-      <p>More cool builds like Random Grounds, OneAI org, Mulberry-AI, and more.<br>
-      <a href="otherProjects.html">Explore</a>
+    <div class="card">
+      <h2>ScaledSummary</h2>
+      <p>Summarizes YouTube videos with no OpenAI APIs. Auto transcript, summary, purple-themed UI.<br>
+      <a href="https://github.com/FlakyOneAI/ScaledSummary" target="_blank">GitHub</a> • 
+      <a href="https://scaledsummary.onrender.com" target="_blank">Live Site</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Firebase Chat App</h2>
+      <p>Full-featured chat app with group chats, DMs, voice/video calls, Google login, and more.<br>
+      <a href="https://github.com/FlakyOneAI/Firebase-ChatApp" target="_blank">GitHub</a> • 
+      <a href="https://flakychatapp.github.io" target="_blank">Live</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Random Grounds (Game)</h2>
+      <p>A Roblox-style retro fighting game featuring Gojo, stickmen, and platform action. Retired now.<br>
+      <a href="https://www.roblox.com/games/15004378903/Random-Grounds" target="_blank">Play on Roblox</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Mulberry-AI</h2>
+      <p>A Flask-based AI assistant with TTS and EleutherAI model backend. Basic UI and logic.<br>
+      <a href="https://github.com/FlakyOneAI/Mulberry-AI" target="_blank">GitHub</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Clancy-AI</h2>
+      <p>Another Flask AI assistant themed after the *Clancy* album. Dialogue-focused.<br>
+      <a href="https://github.com/FlakyOneAI/Clancy-AI" target="_blank">GitHub</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>OneAI (Org)</h2>
+      <p>I started OneAI as a nonprofit AI org. Part of PlusLink collab. STR!KE-III & ScaledSummary live here.<br>
+      <a href="https://github.com/FlakyOneAI" target="_blank">GitHub Org</a>
       </p>
     </div>
 
@@ -171,36 +211,38 @@
     </div>
 
     <div class="card">
+      <h2>STR!KE-III UI</h2>
+      <p>Built the UI for STR!KE-III with purple neon, animated chat bubbles, and a whole aesthetic.</p>
+    </div>
+
+    <div class="card">
       <h2>GitHub Pages Deployments</h2>
       <p>Deployed real-time apps and UIs using GitHub Pages — no backend fuss, full frontend power.<br>
       <a href="https://flakychatapp.github.io" target="_blank">Firebase Chat App</a> • 
-      <a href="https://flakystrike3.github.io" target="_blank">STR!KE-III UI</a>
-      </p>
+      <a href="https://flakystrike3.github.io" target="_blank">STR!KE-III UI</a
+</p>
     </div>
 
   </div>
 
-  <div class="footer">
-    Flakious • Dev, cult leader, design goblin, chaos engineer.
-  </div>
-
-  <div class="bottom-sheet">
-    <p>Keep scrollin’. Your next breakthrough might already be here.</p>
-  </div>
+  <footer class="footer">
+    <p>© 2025 Flakious. All projects and content owned by Flakious. Made with code, chaos, and caffeine.</p>
+  </footer>
 
   <script>
+    // Simple fade-in effect for cards on scroll
     const cards = document.querySelectorAll('.card');
-    const revealOnScroll = () => {
-      const trigger = window.innerHeight * 0.9;
-      cards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        if (rect.top < trigger) {
-          card.classList.add('visible');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
-    };
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
+    }, { threshold: 0.1 });
+
+    cards.forEach(card => observer.observe(card));
   </script>
+
 </body>
 </html>
