@@ -1,182 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Flakious Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flakes Portfolio</title>
   <style>
-
-    /* Global Styling */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --px: 50%;
+      --py: 50%;
+    }
     body {
+      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    header {
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 48px;
-      background: linear-gradient(90deg, #00ffe7, #ff00c8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    p.tagline {
-      font-size: 20px;
-      color: #bbb;
-      margin-top: 10px;
-    }
-
-    .section {
-      max-width: 1100px;
-      margin: 50px auto;
-      padding: 20px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 20px;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-      padding: 40px;
-      margin: 30px 0;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-15px) rotateX(10deg) rotateY(5deg);
-      box-shadow: 0 40px 80px rgba(0,0,0,0.7);
-    }
-
-    .card h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    .skills, .achievements {
+      background: #111;
+      color: #eee;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      gap: 30px;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px;
     }
-
-    .skill, .achievement {
-      flex: 1 1 200px;
-      background: rgba(0,0,0,0.3);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 15px;
-      padding: 20px;
+    .card-wrapper {
+      perspective: 1200px;
+      margin-bottom: 60px;
+    }
+    .card {
+      width: 320px;
+      padding: 30px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      transform-style: preserve-3d;
+      transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at var(--px) var(--py),
+        rgba(255,255,255,0.1), transparent 60%);
+      transition: background 0.2s;
+      pointer-events: none;
+    }
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 0 auto;
+      border: 3px solid rgba(255,255,255,0.3);
+      display: block;
+    }
+    h2 {
       text-align: center;
-      transition: transform 0.3s;
+      margin: 15px 0 5px;
     }
-
-    .skill:hover, .achievement:hover {
-      transform: scale(1.1);
-    }
-
-    .skill img, .achievement img {
-      width: 80px;
-      margin-bottom: 15px;
-    }
-
-    footer {
+    p.title {
       text-align: center;
-      margin: 50px 0 20px;
-      color: #777;
+      color: #aaa;
+      font-size: 0.9em;
     }
-
-    /* Neon border button */
-    .neon-button {
-      margin-top: 30px;
-      padding: 15px 40px;
-      font-size: 20px;
-      color: #fff;
-      background: none;
-      border: 2px solid;
-      border-image: linear-gradient(45deg, #ff00c8, #00ffe7) 1;
-      border-radius: 50px;
+    .socials {
+      margin: 20px 0;
+      text-align: center;
+    }
+    .socials a {
+      margin: 0 8px;
+      font-size: 1.4em;
+      color: #eee;
+      transition: transform 0.2s;
+      display: inline-block;
+    }
+    .socials a:hover {
+      transform: scale(1.2);
+    }
+    .neon-btn {
+      display: block;
+      margin: 20px auto 0;
+      padding: 12px 30px;
+      font-size: 1em;
+      border: none;
+      color: #111;
+      background: linear-gradient(45deg, #0ff, #f0f);
+      border-radius: 25px;
       cursor: pointer;
-      transition: all 0.4s ease;
+      box-shadow: 0 0 8px rgba(0,255,255,0.5), 0 0 8px rgba(255,0,255,0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-
-    .neon-button:hover {
-      background: linear-gradient(45deg, #ff00c8, #00ffe7);
-      color: #000;
-      transform: scale(1.1);
+    .neon-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 16px rgba(0,255,255,0.8), 0 0 16px rgba(255,0,255,0.8);
     }
-
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Flakious Portfolio</h1>
-  <p class="tagline">AI Dev • Fullstack • SaaS Architect • Gen Z God Mode</p>
-  <button class="neon-button">Hire Me</button>
-</header>
-
-<section class="section card">
-  <h2>About Me</h2>
-  <p>
-    Hey, I'm Flakious 👾<br>
-    I build AI tools, fullstack SaaS apps, chatbots, generative projects, and mess with cutting-edge tech.  
-    Obsessed with high performance, efficient design, and dumb ideas that accidentally work.
-  </p>
-</section>
-
-<section class="section card">
-  <h2>Skills</h2>
-  <div class="skills">
-    <div class="skill">
-      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968322.png" alt="HTML">
-      <h3>HTML5 & CSS3</h3>
+<div class="card-wrapper">
+  <div class="card" id="profileCard">
+    <img class="avatar" src="https://via.placeholder.com/100" alt="Flakes Avatar"/>
+    <h2>Flakes Of Smth</h2>
+    <p class="title">AI Dev • Fullstack • Gen Z Energy</p>
+    <div class="socials">
+      <a href="#" title="Discord">@flakesofsmth</a>
+      <a href="https://instagram.com/flakesofsmth" target="_blank">📸 Instagram</a>
+      <a href="https://reddit.com/u/Flakesofsmth" target="_blank">👽 Reddit</a>
+      <a href="https://www.roblox.com/users/real_Ashsh" target="_blank">🕹️ Roblox</a>
     </div>
-    <div class="skill">
-      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JS">
-      <h3>JavaScript / React</h3>
-    </div>
-    <div class="skill">
-      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python">
-      <h3>Python / Flask</h3>
-    </div>
-    <div class="skill">
-      <img src="https://cdn-icons-png.flaticon.com/512/753/753244.png" alt="AI">
-      <h3>AI & ML</h3>
-    </div>
+    <button class="neon-btn">Contact Me</button>
   </div>
-</section>
+</div>
 
-<section class="section card">
-  <h2>Achievements</h2>
-  <div class="achievements">
-    <div class="achievement">
-      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Founder">
-      <h3>Founder of Strait-AI & Mulberry-AI</h3>
-      <p>Building independent AI research tools and SaaS platforms.</p>
-    </div>
-    <div class="achievement">
-      <img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" alt="Open Source">
-      <h3>Open Source Contributions</h3>
-      <p>Multiple public AI models, chatbot engines, and Flask projects shared.</p>
-    </div>
-    <div class="achievement">
-      <img src="https://cdn-icons-png.flaticon.com/512/189/189665.png" alt="Community">
-      <h3>Community Lead</h3>
-      <p>Owner of Zeta HS & Dem Cult community around customization and AI discussions.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  &copy; 2025 Flakious. All rights reserved.
-</footer>
+<script>
+  const card = document.getElementById('profileCard');
+  card.addEventListener('pointermove', e => {
+    const rect = card.getBoundingClientRect();
+    const px = ((e.clientX - rect.left) / rect.width) * 100;
+    const py = ((e.clientY - rect.top) / rect.height) * 100;
+    card.style.transform = `rotateY(${(px - 50)/5}deg) rotateX(${(50 - py)/5}deg)`;
+    document.documentElement.style.setProperty('--px', px + '%');
+    document.documentElement.style.setProperty('--py', py + '%');
+  });
+  card.addEventListener('pointerleave', () => {
+    card.style.transform = 'rotateY(0) rotateX(0)';
+    document.documentElement.style.setProperty('--px', '50%');
+    document.documentElement.style.setProperty('--py', '50%');
+  });
+</script>
 
 </body>
 </html>
