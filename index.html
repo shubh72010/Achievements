@@ -2,69 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Profile Card</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flakesofsmth | Achievements Card</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Link to your CSS file in the repo root -->
   <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      background: #0f101a;
-      min-height: 100vh;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  </style>
 </head>
 <body>
   <div class="pc-card-wrapper">
     <div class="pc-card">
-      <!-- Avatar with holographic effect -->
+      <!-- Avatar Section -->
       <div class="pc-avatar-content">
-        <img class="avatar" src="profile.png" alt="Your Avatar" />
+        <img class="avatar" src="profile.png" alt="Flakesofsmth Avatar">
       </div>
-      <!-- Card Content -->
       <div class="pc-content">
+        <!-- Details Section -->
         <div class="pc-details">
-          <h3>Shubh72010</h3>
-          <p>Full Stack Developer & OSS Enthusiast</p>
+          <h3>Flakesofsmth</h3>
+          <p>
+            Enthusiastic developer, aviation fan, and meme lover.<br>
+            Always exploring new tech and online communities!
+          </p>
         </div>
+        <!-- Social Buttons Section -->
+        <div class="pc-socials">
+          <a href="https://discord.com/users/flakesofsmth" class="pc-social-btn discord" target="_blank" rel="noopener">Discord</a>
+          <a href="https://reddit.com/u/Flakesofsmth" class="pc-social-btn reddit" target="_blank" rel="noopener">Reddit</a>
+          <a href="https://instagram.com/flakesofsmth" class="pc-social-btn instagram" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://youtube.com/@FlayTripsOnAir" class="pc-social-btn youtube" target="_blank" rel="noopener">YouTube</a>
+        </div>
+        <!-- User Info Row -->
         <div class="pc-user-info">
           <div class="pc-user-details">
             <div class="pc-mini-avatar">
-              <img src="profile.png" alt="Mini Avatar" />
+              <img src="profile.png" alt="Mini Avatar">
             </div>
             <div class="pc-user-text">
-              <span class="pc-handle">@shubh72010</span>
+              <span class="pc-handle">@Flakesofsmth</span>
               <span class="pc-status">Online</span>
             </div>
           </div>
-          <a class="pc-contact-btn" href="mailto:your@email.com">Contact Me</a>
+          <button class="pc-contact-btn">Contact</button>
         </div>
       </div>
     </div>
   </div>
-  <!-- Optional: 3D Tilt Effect -->
-  <script>
-    const cardWrapper = document.querySelector('.pc-card-wrapper');
-    const card = document.querySelector('.pc-card');
-    cardWrapper.addEventListener('mousemove', (e) => {
-      const rect = cardWrapper.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const midX = rect.width / 2;
-      const midY = rect.height / 2;
-      const rotateX = ((y - midY) / midY) * 10;
-      const rotateY = ((x - midX) / midX) * -10;
-      card.style.setProperty('--rotate-x', `${rotateY}deg`);
-      card.style.setProperty('--rotate-y', `${rotateX}deg`);
-      card.classList.add('active');
-    });
-    cardWrapper.addEventListener('mouseleave', () => {
-      card.style.setProperty('--rotate-x', `0deg`);
-      card.style.setProperty('--rotate-y', `0deg`);
-      card.classList.remove('active');
-    });
-  </script>
 </body>
 </html>
