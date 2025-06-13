@@ -2,139 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Profile Card</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flakious Profile Card</title>
-  <style>
-    :root {
-      --card-radius: 30px;
-      --primary-color: #6f6fbe;
-      --accent-color: #00ffaac4;
-      --background-color: #121212;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background: #0b0b0b;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-
-    .pc-card-wrapper {
-      perspective: 500px;
-      position: relative;
-      touch-action: none;
-    }
-
-    .pc-card {
-      height: 80svh;
-      max-height: 540px;
-      aspect-ratio: 0.718;
-      border-radius: var(--card-radius);
-      background: radial-gradient(circle at center, #1e1e1e, #121212);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-      overflow: hidden;
-      transition: transform 0.6s ease;
-      transform: rotateX(0deg) rotateY(0deg);
-    }
-
-    .pc-card:hover {
-      transform: rotateX(5deg) rotateY(5deg);
-    }
-
-    .pc-inside {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(12px);
-    }
-
-    .pc-glare {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent 60%);
-      mix-blend-mode: overlay;
-    }
-
-    .pc-content {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      padding: 20px;
-    }
-
-    .pc-avatar {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 4px solid rgba(255, 255, 255, 0.2);
-      margin-bottom: 20px;
-    }
-
-    .pc-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .pc-details h3 {
-      font-size: 28px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 10px;
-      background-image: linear-gradient(to right, #fff, var(--primary-color));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .pc-details p {
-      font-size: 16px;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 20px;
-    }
-
-    .pc-contact-btn {
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 10px 20px;
-      border-radius: 10px;
-      color: #fff;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-      background: rgba(255, 255, 255, 0.05);
-      cursor: pointer;
-    }
-
-    .pc-contact-btn:hover {
-      border-color: rgba(255, 255, 255, 0.5);
-      transform: translateY(-3px);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <!-- You can use your own favicon or remove the next line -->
+  <link rel="icon" href="profile.png">
 </head>
-<body>
+<body style="background: #161628; min-height: 100vh; display: flex; align-items: center; justify-content: center; margin:0;">
 
-  <div class="pc-card-wrapper">
+  <div class="pc-card-wrapper active">
     <div class="pc-card">
-      <div class="pc-inside"></div>
+      <div class="pc-shine"></div>
       <div class="pc-glare"></div>
+      <div class="pc-avatar-content">
+        <img class="avatar" src="profile.png" alt="Your Avatar" />
+      </div>
       <div class="pc-content">
-        <div class="pc-avatar">
-          <img src="https://i.imgur.com/your-avatar.png" alt="Flakious Avatar">
-        </div>
         <div class="pc-details">
-          <h3>Flakious</h3>
-          <p>Creator of dem cult 🜲 -//</p>
+          <h3>Shubh72010</h3>
+          <p>Full Stack Developer & OSS Enthusiast</p>
         </div>
-        <button class="pc-contact-btn">Contact</button>
+        <div class="pc-user-info">
+          <div class="pc-user-details">
+            <div class="pc-mini-avatar">
+              <img src="profile.png" alt="Mini Avatar" />
+            </div>
+            <div class="pc-user-text">
+              <span class="pc-handle">@shubh72010</span>
+              <span class="pc-status">Online</span>
+            </div>
+          </div>
+          <a class="pc-contact-btn" href="mailto:your@email.com">Contact Me</a>
+        </div>
       </div>
     </div>
   </div>
