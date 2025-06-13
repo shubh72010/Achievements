@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- Metallic, animated page background --- */
+    /* --- Dark Metallic Animated Background --- */
     body {
       min-height: 100vh;
       margin: 0;
@@ -15,28 +15,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: 
-        linear-gradient(120deg, #cfcfcf 0%, #f8f8f8 45%, #b0b0b0 60%, #e0e0e0 100%),
+      background:
+        linear-gradient(120deg, #23272F 0%, #20232a 45%, #121417 75%, #353535 100%),
         repeating-linear-gradient(105deg, rgba(255,255,255,.08) 0 2px, transparent 2px 10px),
         repeating-linear-gradient(255deg, rgba(80,80,80,.07) 0 1.5px, transparent 1.5px 7px);
       background-blend-mode: screen, lighten, lighten;
       background-size: 300% 300%, 200% 200%, 400% 400%;
-      animation: bg-metallic-anim 15s linear infinite alternate;
+      animation: bg-metallic-dark-anim 15s linear infinite alternate;
       position: relative;
     }
-    /* Metal shimmer */
-    @keyframes bg-metallic-anim {
-      0% {
-        background-position: 0% 60%, 0% 0%, 0% 0%;
-      }
-      50% {
-        background-position: 100% 40%, 80% 60%, 60% 100%;
-      }
-      100% {
-        background-position: 0% 60%, 100% 100%, 100% 0%;
-      }
+    @keyframes bg-metallic-dark-anim {
+      0% {background-position: 0% 60%, 0% 0%, 0% 0%;}
+      50% {background-position: 100% 40%, 80% 60%, 60% 100%;}
+      100% {background-position: 0% 60%, 100% 100%, 100% 0%;}
     }
-    /* Subtle noise overlay for realism */
     body::before {
       content: "";
       position: fixed;
@@ -44,44 +36,40 @@
       pointer-events: none;
       z-index: 0;
       background: url('https://www.transparenttextures.com/patterns/silver-flame.png');
-      opacity: 0.15;
+      opacity: 0.09;
       mix-blend-mode: overlay;
     }
 
-    /* --- Card Animations (animated gradient) --- */
+    /* --- Dark Animated Card --- */
     .pc-card {
-      background: linear-gradient(135deg, #eaeaea 0%, #bdbdbd 33%, #e0e0e0 66%, #b0b0b0 100%);
+      background: linear-gradient(135deg, #26292f 0%, #1d1f23 33%, #23272f 66%, #111215 100%);
       background-size: 300% 300%;
-      animation: card-gradient-anim 8s ease-in-out infinite alternate;
+      animation: card-gradient-dark-anim 8s ease-in-out infinite alternate;
       border-radius: 28px;
-      box-shadow: 0 6px 36px 0 rgba(60,60,60,0.18), 0 1.5px 7px 0 rgba(255,255,255,0.13) inset;
-      /* 3D effect variables */
+      box-shadow: 0 6px 36px 0 rgba(30,30,40,0.22), 0 1.5px 7px 0 rgba(0,0,0,0.20) inset;
       transition: transform 0.6s cubic-bezier(.19,1,.22,1);
       transform: rotateX(var(--rotate-y, 0deg)) rotateY(var(--rotate-x, 0deg));
-      /* For demo - you may already have this in style.css */
       padding: 2rem 2.5rem;
       max-width: 350px;
       position: relative;
       z-index: 1;
     }
-    @keyframes card-gradient-anim {
+    @keyframes card-gradient-dark-anim {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-    /* Add a metallic reflection effect on the card */
     .pc-card::before {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       border-radius: 28px;
-      background: linear-gradient(120deg, rgba(255,255,255,0.28) 5%, rgba(255,255,255,0.12) 40%, rgba(200,200,200,0.07) 80%);
+      background: linear-gradient(120deg, rgba(255,255,255,0.09) 5%, rgba(255,255,255,0.05) 40%, rgba(80,80,80,0.09) 80%);
       pointer-events: none;
       z-index: 2;
       mix-blend-mode: screen;
     }
 
-    /* --- Rest of your card styling (adjust as needed or use style.css) --- */
     .pc-card-wrapper {
       perspective: 700px;
       display: flex;
@@ -98,21 +86,21 @@
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      border: 3px solid #e0e0e0;
-      box-shadow: 0 2px 12px rgba(80,80,80,0.07);
-      background: #fff;
+      border: 3px solid #23272f;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+      background: #181a1b;
       object-fit: cover;
     }
     .pc-details h3 {
       margin: 0 0 0.3em 0;
       font-size: 1.6em;
-      color: #444;
+      color: #efefef;
       text-align: center;
       letter-spacing: 0.01em;
     }
     .pc-details p {
       margin: 0 0 1rem;
-      color: #6e6e6e;
+      color: #bdbdbd;
       font-size: 1em;
       text-align: center;
     }
@@ -131,66 +119,24 @@
       text-decoration: none;
       border: none;
       transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-      background: #e0e0e0;
-      color: #333;
-      box-shadow: 0 1.5px 7px 0 rgba(80,80,80,0.08);
+      background: #23272f;
+      color: #ccc;
+      box-shadow: 0 1.5px 7px 0 rgba(0,0,0,0.18);
       cursor: pointer;
       letter-spacing: 0.01em;
     }
     .pc-social-btn.discord { background: #5865F2; color: #fff; }
     .pc-social-btn.reddit { background: #FF4500; color: #fff; }
-    .pc-social-btn.instagram { background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: #fff; }
-    .pc-social-btn.youtube { background: #FF0000; color: #fff; }
-    .pc-social-btn:hover {
-      filter: brightness(1.12) saturate(1.2);
-      box-shadow: 0 2.5px 13px 0 rgba(50,50,50,0.13);
-    }
-    .pc-user-info {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 1.2rem;
-    }
-    .pc-user-details {
-      display: flex;
-      align-items: center;
-    }
-    .pc-mini-avatar img {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      border: 2px solid #eee;
-      object-fit: cover;
-      margin-right: 0.5em;
-    }
-    .pc-user-text {
-      display: flex;
-      flex-direction: column;
-      font-size: 0.98em;
-    }
-    .pc-handle {
-      font-weight: 700;
-      color: #4a4a4a;
-    }
-    .pc-status {
-      color: #19c264;
-      font-size: 0.95em;
-    }
-    .pc-contact-btn {
-      padding: 0.5em 1.2em;
-      border-radius: 2em;
-      border: none;
-      background: #cfcfcf;
-      color: #234;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 2px 10px rgba(80,80,80,0.04);
-      transition: background 0.2s, color 0.2s;
-    }
-    .pc-contact-btn:hover {
-      background: #b0b0b0;
+    .pc-social-btn.instagram { 
+      background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
       color: #fff;
     }
+    .pc-social-btn.youtube { background: #FF0000; color: #fff; }
+    .pc-social-btn:hover {
+      filter: brightness(1.17) saturate(1.2);
+      box-shadow: 0 2.5px 13px 0 rgba(0,0,0,0.23);
+    }
+
     /* Responsive */
     @media (max-width: 500px) {
       .pc-card {
@@ -219,18 +165,6 @@
           <a href="https://reddit.com/u/Flakesofsmth" class="pc-social-btn reddit" target="_blank" rel="noopener">Reddit</a>
           <a href="https://instagram.com/flakesofsmth" class="pc-social-btn instagram" target="_blank" rel="noopener">Instagram</a>
           <a href="https://youtube.com/@FlayTripsOnAir" class="pc-social-btn youtube" target="_blank" rel="noopener">YouTube</a>
-        </div>
-        <div class="pc-user-info">
-          <div class="pc-user-details">
-            <div class="pc-mini-avatar">
-              <img src="profile.png" alt="Mini Avatar">
-            </div>
-            <div class="pc-user-text">
-              <span class="pc-handle">@Flakesofsmth</span>
-              <span class="pc-status">Online</span>
-            </div>
-          </div>
-          <button class="pc-contact-btn">Contact</button>
         </div>
       </div>
     </div>
