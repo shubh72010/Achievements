@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Link to your CSS file in the repo root -->
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Fallback if you want to paste this into a blank environment without style.css:
+    If not needed, remove this <style> block!
+    */
+  </style>
 </head>
 <body>
   <div class="pc-card-wrapper">
@@ -46,5 +51,30 @@
       </div>
     </div>
   </div>
+  <!-- 3D Interaction Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const card = document.querySelector('.pc-card');
+      const wrapper = document.querySelector('.pc-card-wrapper');
+      if (!card || !wrapper) return;
+
+      wrapper.addEventListener('mousemove', (e) => {
+        const rect = wrapper.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateY = ((x - centerX) / centerX) * 10; // Adjust 10 for more/less tilt
+        const rotateX = ((centerY - y) / centerY) * 10;
+        card.style.setProperty('--rotate-x', `${rotateY}deg`);
+        card.style.setProperty('--rotate-y', `${rotateX}deg`);
+      });
+
+      wrapper.addEventListener('mouseleave', () => {
+        card.style.setProperty('--rotate-x', `0deg`);
+        card.style.setProperty('--rotate-y', `0deg`);
+      });
+    });
+  </script>
 </body>
 </html>
