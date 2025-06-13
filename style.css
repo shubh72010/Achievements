@@ -36,7 +36,7 @@ body {
   z-index: 0;
 }
 
-/* Holographic Animated Effect on the Whole Card */
+/* Grey Animated Effect on the Whole Card */
 .pc-card::before {
   content: "";
   position: absolute;
@@ -70,7 +70,7 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  margin-top: 38px;      /* This pushes avatar further down */
+  margin-top: 38px;
   margin-bottom: 10px;
 }
 .pc-avatar-content .avatar {
@@ -117,6 +117,45 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Social Buttons */
+.pc-socials {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.pc-social-btn {
+  display: inline-block;
+  padding: 7px 16px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  background: #232350;
+  border: 1px solid #232350;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.07);
+}
+
+.pc-social-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: #4646a0;
+  border-color: #e6e6fa;
+}
+
+/* Platform-specific colors */
+.pc-social-btn.discord    { background: #5865F2; }
+.pc-social-btn.discord:hover { background: #4048a1; }
+.pc-social-btn.reddit     { background: #FF4500; }
+.pc-social-btn.reddit:hover { background: #b03200; }
+.pc-social-btn.instagram  { background: #E1306C; }
+.pc-social-btn.instagram:hover { background: #a11e4b; }
+.pc-social-btn.youtube    { background: #FF0000; }
+.pc-social-btn.youtube:hover { background: #9b0000; }
 
 /* User Info Row */
 .pc-user-info {
@@ -205,6 +244,10 @@ body {
   .pc-details {
     margin-top: 7px;
     margin-bottom: 9px;
+  }
+  .pc-socials {
+    gap: 7px;
+    margin-bottom: 10px;
   }
   .pc-user-info {
     padding: 8px 10px;
