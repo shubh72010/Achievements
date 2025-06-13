@@ -4,23 +4,34 @@
   <meta charset="UTF-8">
   <title>Flakesofsmth | Achievements Card</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Link to your CSS file in the repo root -->
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Fallback if you want to paste this into a blank environment without style.css:
-    If not needed, remove this <style> block!
-    */
+    /* Animated grey gradient background for the whole page */
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(120deg, #cfcfcf, #eeeeee, #b0b0b0, #d9d9d9);
+      background-size: 400% 400%;
+      animation: bg-animate 12s ease-in-out infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    @keyframes bg-animate {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
   </style>
 </head>
 <body>
   <div class="pc-card-wrapper">
     <div class="pc-card">
-      <!-- Avatar Section -->
       <div class="pc-avatar-content">
         <img class="avatar" src="profile.png" alt="Flakesofsmth Avatar">
       </div>
       <div class="pc-content">
-        <!-- Details Section -->
         <div class="pc-details">
           <h3>Flakesofsmth</h3>
           <p>
@@ -28,14 +39,12 @@
             Always exploring new tech and online communities!
           </p>
         </div>
-        <!-- Social Buttons Section -->
         <div class="pc-socials">
           <a href="https://discord.com/users/flakesofsmth" class="pc-social-btn discord" target="_blank" rel="noopener">Discord</a>
           <a href="https://reddit.com/u/Flakesofsmth" class="pc-social-btn reddit" target="_blank" rel="noopener">Reddit</a>
           <a href="https://instagram.com/flakesofsmth" class="pc-social-btn instagram" target="_blank" rel="noopener">Instagram</a>
           <a href="https://youtube.com/@FlayTripsOnAir" class="pc-social-btn youtube" target="_blank" rel="noopener">YouTube</a>
         </div>
-        <!-- User Info Row -->
         <div class="pc-user-info">
           <div class="pc-user-details">
             <div class="pc-mini-avatar">
@@ -51,25 +60,22 @@
       </div>
     </div>
   </div>
-  <!-- 3D Interaction Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const card = document.querySelector('.pc-card');
       const wrapper = document.querySelector('.pc-card-wrapper');
       if (!card || !wrapper) return;
-
       wrapper.addEventListener('mousemove', (e) => {
         const rect = wrapper.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-        const rotateY = ((x - centerX) / centerX) * 10; // Adjust 10 for more/less tilt
+        const rotateY = ((x - centerX) / centerX) * 10;
         const rotateX = ((centerY - y) / centerY) * 10;
         card.style.setProperty('--rotate-x', `${rotateY}deg`);
         card.style.setProperty('--rotate-y', `${rotateX}deg`);
       });
-
       wrapper.addEventListener('mouseleave', () => {
         card.style.setProperty('--rotate-x', `0deg`);
         card.style.setProperty('--rotate-y', `0deg`);
