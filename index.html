@@ -19,7 +19,7 @@
 <body>
   <div class="pc-card-wrapper">
     <div class="pc-card">
-      <!-- Avatar -->
+      <!-- Avatar with holographic effect -->
       <div class="pc-avatar-content">
         <img class="avatar" src="profile.png" alt="Your Avatar" />
       </div>
@@ -44,12 +44,10 @@
       </div>
     </div>
   </div>
-
-  <!-- 3D Tilt Script -->
+  <!-- Optional: 3D Tilt Effect -->
   <script>
     const cardWrapper = document.querySelector('.pc-card-wrapper');
     const card = document.querySelector('.pc-card');
-
     cardWrapper.addEventListener('mousemove', (e) => {
       const rect = cardWrapper.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -62,7 +60,6 @@
       card.style.setProperty('--rotate-y', `${rotateX}deg`);
       card.classList.add('active');
     });
-
     cardWrapper.addEventListener('mouseleave', () => {
       card.style.setProperty('--rotate-x', `0deg`);
       card.style.setProperty('--rotate-y', `0deg`);
