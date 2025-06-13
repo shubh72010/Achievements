@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Achievements Profile Card</title>
+  <title>Profile Card</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <style>
@@ -19,15 +19,15 @@
 <body>
   <div class="pc-card-wrapper">
     <div class="pc-card">
-      <!-- Avatar -->
+      <!-- Avatar with holographic effect -->
       <div class="pc-avatar-content">
         <img class="avatar" src="profile.png" alt="Your Avatar" />
       </div>
       <!-- Card Content -->
       <div class="pc-content">
         <div class="pc-details">
-          <h3>shubh72010</h3>
-          <p>Open Source Enthusiast & Achiever</p>
+          <h3>Shubh72010</h3>
+          <p>Full Stack Developer & OSS Enthusiast</p>
         </div>
         <div class="pc-user-info">
           <div class="pc-user-details">
@@ -44,5 +44,27 @@
       </div>
     </div>
   </div>
+  <!-- Optional: 3D Tilt Effect -->
+  <script>
+    const cardWrapper = document.querySelector('.pc-card-wrapper');
+    const card = document.querySelector('.pc-card');
+    cardWrapper.addEventListener('mousemove', (e) => {
+      const rect = cardWrapper.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const midX = rect.width / 2;
+      const midY = rect.height / 2;
+      const rotateX = ((y - midY) / midY) * 10;
+      const rotateY = ((x - midX) / midX) * -10;
+      card.style.setProperty('--rotate-x', `${rotateY}deg`);
+      card.style.setProperty('--rotate-y', `${rotateX}deg`);
+      card.classList.add('active');
+    });
+    cardWrapper.addEventListener('mouseleave', () => {
+      card.style.setProperty('--rotate-x', `0deg`);
+      card.style.setProperty('--rotate-y', `0deg`);
+      card.classList.remove('active');
+    });
+  </script>
 </body>
 </html>
