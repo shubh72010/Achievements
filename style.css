@@ -4,11 +4,6 @@
   --card-radius: 28px;
 }
 
-body {
-  background: #0f101a;
-  color: #e6e6fa;
-}
-
 .pc-card-wrapper {
   perspective: 700px;
   min-width: 320px;
@@ -23,9 +18,8 @@ body {
   border-radius: var(--card-radius);
   overflow: hidden;
   width: 100%;
-  min-height: 440px;
-  height: 65vh;
-  max-height: 540px;
+  min-height: 480px;
+  max-height: 600px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -35,29 +29,26 @@ body {
   position: relative;
 }
 
-/* ========= Avatar with HOLOGRAPHIC EFFECT ========== */
+/* ====== Avatar with Holographic Effect ====== */
 .pc-avatar-content {
   position: relative;
   width: 100%;
-  height: 210px;
+  height: 260px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 18px;
-  margin-bottom: 12px;
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
 .pc-avatar-content .avatar {
-  width: 90%;
-  max-width: 220px;
-  aspect-ratio: 1/1;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 1;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
   border-radius: 50%;
   object-fit: cover;
+  position: relative;
   z-index: 2;
   box-shadow: 0 0 40px 0 rgba(0,0,0,0.25);
   border: 4px solid rgba(255,255,255,0.16);
@@ -70,8 +61,8 @@ body {
   position: absolute;
   left: 50%; top: 50%;
   transform: translate(-50%, -50%);
-  width: 128%;
-  height: 128%;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   z-index: 1;
   background:
@@ -79,10 +70,10 @@ body {
       from 0deg,
       #ff00cc, #3333ff, #00ffee, #00ff55, #ffe600, #ff6600, #ff00cc, #3333ff
     );
-  filter: blur(28px) brightness(1.2) saturate(2.1);
-  animation: holo-rotate 5.5s linear infinite;
+  filter: blur(32px) brightness(1.14) saturate(2.1);
+  animation: holo-rotate 6s linear infinite;
   pointer-events: none;
-  opacity: 0.75;
+  opacity: 0.65;
 }
 
 /* Glassy shine overlay on avatar */
@@ -91,11 +82,10 @@ body {
   position: absolute;
   left: 50%; top: 50%;
   transform: translate(-50%, -50%);
-  width: 92%;
-  height: 92%;
+  width: 98%;
+  height: 98%;
   border-radius: 50%;
-  background:
-    linear-gradient(120deg, rgba(255,255,255,0.39) 24%, rgba(255,255,255,0.07) 76%);
+  background: linear-gradient(120deg, rgba(255,255,255,0.39) 24%, rgba(255,255,255,0.07) 76%);
   z-index: 3;
   pointer-events: none;
   mix-blend-mode: lighten;
@@ -115,13 +105,13 @@ body {
 }
 
 .pc-details {
-  margin-top: 20px;
+  margin-top: 8px;
   margin-bottom: 16px;
   text-align: center;
 }
 
 .pc-details h3 {
-  font-size: 1.6em;
+  font-size: 1.65em;
   font-weight: 600;
   margin: 0 0 10px 0;
   background-image: linear-gradient(to bottom, #e6e6fa, #4646a0);
@@ -212,13 +202,13 @@ body {
 
 /* ========== Holographic Animations ========== */
 @keyframes holo-rotate {
-  0% { filter: blur(28px) brightness(1.2) saturate(2.1) hue-rotate(0deg);}
-  100% { filter: blur(28px) brightness(1.2) saturate(2.1) hue-rotate(360deg);}
+  0% { filter: blur(32px) brightness(1.14) saturate(2.1) hue-rotate(0deg);}
+  100% { filter: blur(32px) brightness(1.14) saturate(2.1) hue-rotate(360deg);}
 }
 @keyframes holo-shine {
-  0% { opacity: 0.75; }
+  0% { opacity: 0.85; }
   50% { opacity: 1; }
-  100% { opacity: 0.75; }
+  100% { opacity: 0.85; }
 }
 
 /* ========== Responsive ========== */
@@ -228,21 +218,19 @@ body {
     min-width: 0;
   }
   .pc-card {
-    min-height: 340px;
-    height: 56vw;
+    min-height: 330px;
     max-height: 400px;
   }
   .pc-avatar-content {
-    height: 110px;
-    margin-top: 12px;
-    margin-bottom: 6px;
+    height: 150px;
+    margin-top: 7px;
   }
   .pc-avatar-content .avatar {
-    max-width: 110px;
+    max-width: none;
   }
   .pc-details {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 7px;
+    margin-bottom: 9px;
   }
   .pc-user-info {
     padding: 8px 10px;
