@@ -16,6 +16,7 @@ body {
   width: 100%;
   max-width: 340px;
 }
+
 .pc-card {
   position: relative;
   overflow: hidden;
@@ -32,7 +33,6 @@ body {
   justify-content: space-between;
   transition: transform 0.6s cubic-bezier(.19,1,.22,1);
   transform: rotateX(var(--rotate-y)) rotateY(var(--rotate-x));
-  /* Fallback bg if gradient fails */
   z-index: 0;
 }
 
