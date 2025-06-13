@@ -4,97 +4,88 @@
   --card-radius: 28px;
 }
 
+body {
+  background: #0f101a;
+  color: #e6e6fa;
+}
+
+/* Card Wrapper and Card */
 .pc-card-wrapper {
   perspective: 700px;
   min-width: 320px;
   width: 100%;
   max-width: 340px;
 }
-
 .pc-card {
-  background: linear-gradient(135deg, #191932 0%, #1a1a29 100%);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--card-radius);
   box-shadow: 0 6px 32px 0 rgba(0,0,0,0.8);
   border: 1px solid #232350;
-  border-radius: var(--card-radius);
-  overflow: hidden;
   width: 100%;
   min-height: 480px;
   max-height: 600px;
+  background: #151526;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: space-between;
   transition: transform 0.6s cubic-bezier(.19,1,.22,1);
   transform: rotateX(var(--rotate-y)) rotateY(var(--rotate-x));
-  position: relative;
+  /* Fallback bg if gradient fails */
+  z-index: 0;
 }
 
-/* ====== Avatar with Holographic Effect ====== */
+/* Holographic Animated Effect on the Whole Card */
+.pc-card::before {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  z-index: 0;
+  background: conic-gradient(
+    from 0deg,
+    #ff00cc, #3333ff, #00ffee, #00ff55, #ffe600, #ff6600, #ff00cc, #3333ff
+  );
+  filter: blur(48px) brightness(1.17) saturate(1.6);
+  opacity: 0.35;
+  animation: holo-card-rotate 10s linear infinite;
+  pointer-events: none;
+}
+@keyframes holo-card-rotate {
+  0% { filter: blur(48px) brightness(1.17) saturate(1.6) hue-rotate(0deg);}
+  100% { filter: blur(48px) brightness(1.17) saturate(1.6) hue-rotate(360deg);}
+}
+
+/* Ensure card content stays above effect */
+.pc-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Avatar - Large, Centered, a Bit Down */
 .pc-avatar-content {
   position: relative;
   width: 100%;
-  height: 260px;
+  height: 220px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  margin-top: 10px;
-  margin-bottom: 0;
+  margin-top: 38px;      /* This pushes avatar further down */
+  margin-bottom: 10px;
 }
-
 .pc-avatar-content .avatar {
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  max-height: none;
+  width: 170px;
+  height: 170px;
   border-radius: 50%;
   object-fit: cover;
-  position: relative;
-  z-index: 2;
   box-shadow: 0 0 40px 0 rgba(0,0,0,0.25);
   border: 4px solid rgba(255,255,255,0.16);
   background: transparent;
+  z-index: 2;
+  position: static;
 }
 
-/* Holographic animated glow behind avatar */
-.pc-avatar-content::before {
-  content: "";
-  position: absolute;
-  left: 50%; top: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  z-index: 1;
-  background:
-    conic-gradient(
-      from 0deg,
-      #ff00cc, #3333ff, #00ffee, #00ff55, #ffe600, #ff6600, #ff00cc, #3333ff
-    );
-  filter: blur(32px) brightness(1.14) saturate(2.1);
-  animation: holo-rotate 6s linear infinite;
-  pointer-events: none;
-  opacity: 0.65;
-}
-
-/* Glassy shine overlay on avatar */
-.pc-avatar-content::after {
-  content: "";
-  position: absolute;
-  left: 50%; top: 50%;
-  transform: translate(-50%, -50%);
-  width: 98%;
-  height: 98%;
-  border-radius: 50%;
-  background: linear-gradient(120deg, rgba(255,255,255,0.39) 24%, rgba(255,255,255,0.07) 76%);
-  z-index: 3;
-  pointer-events: none;
-  mix-blend-mode: lighten;
-  opacity: 0.85;
-  filter: blur(2px);
-  animation: holo-shine 2.5s linear infinite;
-}
-
-/* ========== Card Content ========== */
+/* Card Content */
 .pc-content {
   flex: 1;
   display: flex;
@@ -103,13 +94,11 @@
   align-items: stretch;
   padding: 0 22px 22px 22px;
 }
-
 .pc-details {
-  margin-top: 8px;
+  margin-top: 6px;
   margin-bottom: 16px;
   text-align: center;
 }
-
 .pc-details h3 {
   font-size: 1.65em;
   font-weight: 600;
@@ -119,7 +108,6 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
 .pc-details p {
   font-size: 1em;
   margin: 0;
@@ -130,6 +118,7 @@
   background-clip: text;
 }
 
+/* User Info Row */
 .pc-user-info {
   display: flex;
   align-items: center;
@@ -140,13 +129,11 @@
   padding: 12px 14px;
   margin-top: 24px;
 }
-
 .pc-user-details {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-
 .pc-mini-avatar {
   width: 28px;
   height: 28px;
@@ -155,33 +142,30 @@
   border: 1px solid #232350;
   flex-shrink: 0;
 }
-
 .pc-mini-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
 }
-
 .pc-user-text {
   display: flex;
   flex-direction: column;
   line-height: 1.1;
 }
-
 .pc-handle {
   font-size: 13px;
   font-weight: 500;
   color: #e6e6fa;
   line-height: 1;
 }
-
 .pc-status {
   font-size: 11px;
   color: #a0a0c0;
   line-height: 1;
 }
 
+/* Contact Button */
 .pc-contact-btn {
   border: 1px solid #4646a0;
   border-radius: 8px;
@@ -194,24 +178,12 @@
   transition: all 0.2s ease;
   backdrop-filter: blur(10px);
 }
-
 .pc-contact-btn:hover {
   border-color: #e6e6fa;
   background: #232350;
 }
 
-/* ========== Holographic Animations ========== */
-@keyframes holo-rotate {
-  0% { filter: blur(32px) brightness(1.14) saturate(2.1) hue-rotate(0deg);}
-  100% { filter: blur(32px) brightness(1.14) saturate(2.1) hue-rotate(360deg);}
-}
-@keyframes holo-shine {
-  0% { opacity: 0.85; }
-  50% { opacity: 1; }
-  100% { opacity: 0.85; }
-}
-
-/* ========== Responsive ========== */
+/* Responsive Design */
 @media (max-width: 480px) {
   .pc-card-wrapper {
     max-width: 100vw;
@@ -222,11 +194,13 @@
     max-height: 400px;
   }
   .pc-avatar-content {
-    height: 150px;
-    margin-top: 7px;
+    height: 110px;
+    margin-top: 20px;
+    margin-bottom: 0;
   }
   .pc-avatar-content .avatar {
-    max-width: none;
+    width: 80px;
+    height: 80px;
   }
   .pc-details {
     margin-top: 7px;
